@@ -1,11 +1,11 @@
-const array = [];
+const arrayOfInputs = [];
 
 function addAnother() {
   const enterInformation = prompt(`Would you like to add a new input?`);
   return enterInformation;
 }
 
-function pushToArray(runCalc) {
+function pushToArray(array) {
   while (addAnother() === "yes") {
     const newEntry = runCalc();
     array.push(newEntry);
@@ -15,11 +15,9 @@ function pushToArray(runCalc) {
 }
 
 function runCalc() {
-  function foodPlace() {
-    const moneySpentAt = prompt(`where did you spend your money?`);
-    return moneySpentAt;
-  }
+  const moneySpentAt = prompt(`where did you spend your money?`);
   const bill = Number(prompt(`please enter the price of the bill`));
+
   function tipCalc(bills) {
     let tip = 0;
     if (bills < 50) {
@@ -32,11 +30,11 @@ function runCalc() {
     return tip;
   }
   return {
-    Location: foodPlace(),
+    Location: moneySpentAt,
     bill: bill,
     Total_Tip: tipCalc(bill),
     Overall_Bill: tipCalc(bill) + bill,
   };
 }
 
-console.log(pushToArray(runCalc));
+console.log(pushToArray(arrayOfInputs));
