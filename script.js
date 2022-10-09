@@ -6,11 +6,7 @@ function addAnother() {
 }
 
 function pushToArray(runCalc) {
-  while (
-    addAnother() === "yes" ||
-    addAnother() === "Yes" ||
-    addAnother() === "YES"
-  ) {
+  while (addAnother() === "yes") {
     const newEntry = runCalc();
     array.push(newEntry);
     console.log(newEntry);
